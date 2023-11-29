@@ -46,13 +46,17 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Вход'),
+        title: Text('Ремонт оборудования'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+           Image.asset(
+              'lib/assets/logo.png',
+              height: 200.0, 
+            ), 
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(labelText: 'Логин'),

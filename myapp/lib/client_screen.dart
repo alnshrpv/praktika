@@ -162,17 +162,35 @@ Widget build(BuildContext context) {
                 if (searchRequestId != null && requests[index].id != searchRequestId) {
                   return Container(); 
                 }
-                return ListTile(
-                  title: Text('Заявка #${requests[index].id}'),
-                  subtitle: Text(
-                    'Тип устройства: ${requests[index].deviceType}\n'
-                    'Описание: ${requests[index].issueDescription}\n'
-                    'Статус: ${requests[index].status}',
-                  ),
-                );
-              },
-            ),
-          ),
+                 return Container(
+  margin: EdgeInsets.symmetric(vertical: 8.0),
+  decoration: BoxDecoration(
+    border: Border(
+      bottom: BorderSide(color: Color.fromARGB(255, 152, 128, 156), width: 1.5),
+    ),
+    borderRadius: BorderRadius.circular(8.0),
+  ),
+  child: ListTile(
+    title: Padding(
+      padding: const EdgeInsets.all(1.0),
+      child: Text(
+        'Заявка #${requests[index].id}',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color:Color.fromARGB(255, 147, 101, 161),
+        ),
+      ),
+    ),
+    subtitle: Text(
+      'Тип устройства: ${requests[index].deviceType}\n'
+      'Описание: ${requests[index].issueDescription}\n'
+      'Статус: ${requests[index].status}',
+    ),
+  ),
+);
+    },
+  ),
+),
           SizedBox(height: 16.0),
           Align(
             alignment: Alignment.bottomCenter,
@@ -180,8 +198,15 @@ Widget build(BuildContext context) {
               onPressed: () {
                 _showSubmitRequestDialog();
               },
-              child: Text('Оформить заявку'),
-            ),
+              child: Padding(
+    padding: const EdgeInsets.symmetric(vertical: 16.0),
+    child: Text(
+      'Оформить заявку',
+      style: TextStyle(fontSize: 18.0),
+      
+    ),
+  ),
+),
           ),
         ],
       ),
